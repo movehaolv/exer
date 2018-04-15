@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<div >
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="https://www.gushiwen.org/gushi/tangshi.aspx">
+                <img style="margin-top:-5px" width="100px" src="{% static 'image/logo.png' %}"/>
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="navigation">
+                <li><a href="{% url 'blog:blog_title' %}">BLOG</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right:10px" >
+                {% if request.user.is_authenticated %}
+{#                    <li><a href="#">{{ user.username }}</a></li>#}
+                    {% if user.is_authenticated %}
+                    <li>
+                    <div class="drop_down" style="margin-top:8px">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+                            {{ user.username }}<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'account:password_change' %}">修改密码</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                    {% endif %}
+
+                    <li><a href="{% url 'account:user_logout' %}">注销</a></li>
+                {% else %}
+                    <li><a style="margin-right:10px" href="{% url 'account:user_login' %}">LOGIN</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<script src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
