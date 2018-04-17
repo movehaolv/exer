@@ -127,3 +127,14 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/blog/blog/'    # 因为django内置模块login，会重定向，p58
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = '839985880@qq.com'
+EMAIL_HOST_PASSWORD = 'iaswpdqyjkxebfaa'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = '839985880@qq.com'
+
+
+
+

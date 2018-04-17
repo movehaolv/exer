@@ -28,8 +28,11 @@
 
                     <li><a href="{% url 'account:user_logout' %}">注销</a></li>
                 {% else %}
-                    <li><a style="margin-right:10px" href="{% url 'account:user_login' %}">LOGIN</a></li>
+                    <li><a style="margin-right:10px" href="{% url 'account:user_login' %}">登录</a></li>
                 {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right" role="navigation">
+                <li><a href="{% url 'account:user_register' %}">注册</a></li>
             </ul>
         </div>
     </nav>
