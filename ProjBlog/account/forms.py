@@ -8,8 +8,10 @@ from django.contrib.auth.models import User
 from .models import UserProfile
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(label='用户名',max_length=20)
     password = forms.CharField(widget=forms.PasswordInput)
+
+from  django import forms
 
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(label='密码',widget=forms.PasswordInput)
@@ -30,4 +32,7 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('birth','phone')
 
+from django.contrib.auth import forms as auth_forms
+class PasswordResetForm(auth_forms.PasswordResetForm):
+    email = forms.EmailField(label="邮箱", max_length=254)
 
